@@ -2,11 +2,20 @@ import { defineConfig } from 'vite';
 import path from 'path';
 import { createVuePlugin as Vue2 } from 'vite-plugin-vue2'
 import ScriptSetup from 'unplugin-vue2-script-setup/vite'
+import purgecss from 'rollup-plugin-purgecss'
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [Vue2(), ScriptSetup()],
+  plugins: [Vue2(), ScriptSetup(),
+  
+  purgecss({
+    content: [
+      "./index.html",
+      "./src/**/*.{vue,js,ts,jsx,tsx}",
+    ],
+  })
+  ],
   resolve: {
     alias: {
       '@/': new URL('./src/', import.meta.url).pathname,
