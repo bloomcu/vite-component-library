@@ -1,12 +1,13 @@
 <script setup lang="ts">
-// import { MyButton } from 'vite-cody2';
-import '../node_modules/vite-cody2/src/assets/base.css';
-// import 'vite-cody2/dist/style.css';
-// import '/node_modules/my-component-lib/dist/style.css';
+// import { Atest, MyButton } from 'vite-cody2';
+import Hero from './lib-components/blocks/Hero/Hero.vue'
 </script>
 
 <template>
-  <div>helo</div>
+  <div>
+    <Hero />
+
+  </div>
 </template>
 
 <style>

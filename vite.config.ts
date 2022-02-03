@@ -16,13 +16,13 @@ export default defineConfig({
     target: 'esnext',
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'MyComponentLib',
-      fileName: (format : string) => `my-component-lib.${format}.js`,
+      name: 'VCodyHouseComponents',
+      fileName: (format : string) => `v-codyhouse-components.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['vue'],
+      external: ['vue', '@vue/composition-api'],
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps

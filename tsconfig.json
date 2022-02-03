@@ -21,7 +21,7 @@
     "declaration": true
   },
   "include": ["vite.config.*", "env.d.ts", "src/**/*", "src/**/*.vue"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "src/App.vue", "src/main.ts"],
   "vueCompilerOptions": {
     "experimentalCompatMode": 2
   }

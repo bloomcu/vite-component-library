@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueCompositionApi from '@vue/composition-api'
+import '../src/styles/style.scss';
 // import ViteCody from 'vite-cody'
 import App from '@/App.vue'
 
