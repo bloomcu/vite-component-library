@@ -20,7 +20,7 @@
 import { Dropdown, Child } from '@/types'
 import { defineComponent, PropType, ref } from '@vue/composition-api'
 import DropdownIcon from '../DropdownIcon.vue'
-import LinkRepeater from '@/lib-components/blocks/LinkRepeater/LinkRepeater.vue'
+import LinkRepeater from '@/lib-components/components/LinkRepeater/LinkRepeater.vue'
 import useClickOutside from '@/composables/useClickOutside'
 import NavbarDropdownToggleButton from './NavbarDropdownToggleButton.vue'
 import NavbarDropdownColumns from './NavbarDropdownColumns.vue'

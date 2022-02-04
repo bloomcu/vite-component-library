@@ -18,7 +18,7 @@ export default defineComponent({
   props: {
     variant: {
       type: String as PropType<ButtonVariant>,
-      default: 'accent'
+      default: 'primary'
     },
     text: {
       type: String,

@@ -10,8 +10,8 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import Grid from '@/lib-components/blocks/Grid/Grid.vue'
-import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
+import Grid from '@/lib-components/components/Grid/Grid.vue'
+import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 export default defineComponent({
   name: 'TextColumns',
@@ -22,16 +22,22 @@ export default defineComponent({
       default: () => [
         {
           label: 'Label',
-          title: 'Labels',
-          subtitle: 'Label',
-          component: 'card'
+          title: 'Column One',
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
+          center: true
         },
         {
           label: 'Label',
-          title: 'Label',
-          subtitle: 'Label',
+          title: 'Column Two',
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
           center: true
-        }
+        },
+        {
+          label: 'Label',
+          title: 'Column Two',
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
+          center: true
+        },
       ]
     }
   },

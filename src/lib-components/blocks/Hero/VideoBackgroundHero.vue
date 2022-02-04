@@ -23,7 +23,7 @@
 import { useProps } from '@/composables/useProps'
 import { Button, Image, Video } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
-import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
+import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 export default defineComponent({
   components: { ContentComponent },
@@ -65,7 +65,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@use '@/styles/base' as *;
+// @use '@/styles/base' as *;
+@import '@/styles/base/mixins';
 
 /* --------------------------------
 

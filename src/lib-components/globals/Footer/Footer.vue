@@ -54,8 +54,8 @@
 import { Link, Child, Logo } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
 import AppLink from '@/lib-components/elements/Link/AppLink.vue'
-import Social from '@/lib-components/blocks/Socials/Social.vue'
-import LinkRepeater from '@/lib-components/blocks/LinkRepeater/LinkRepeater.vue'
+import Social from '@/lib-components/elements/Socials/Social.vue'
+import LinkRepeater from '@/lib-components/components/LinkRepeater/LinkRepeater.vue'
 
 interface SocialNames {
   facebook?: string;

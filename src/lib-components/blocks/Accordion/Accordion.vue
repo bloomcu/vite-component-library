@@ -1,15 +1,17 @@
 <template>
-  <ul
-    class="accordion js-accordion"
-    data-animation="on"
-    data-multi-items="on"
-  >
-    <AccordionItem
-      v-for="child in children"
-      :key="child.uuid"
-      :accordion="child"
-    />
-  </ul>
+  <div class="container max-width-adaptive-lg">
+    <ul
+      class="accordion js-accordion"
+      data-animation="on"
+      data-multi-items="on"
+    >
+      <AccordionItem
+        v-for="child in children"
+        :key="child.uuid"
+        :accordion="child"
+      />
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
@@ -26,13 +28,13 @@ export default defineComponent({
       default: () => ([
         {
           uuid: randomId(),
-          label: 'Accordion1',
-          content: '<p>Hello this is rich text.</p><h1>This is a heading in rich text</h1>'
+          label: 'Accordion One',
+          content: '<p>Hello this is rich text.</p>'
         },
         {
           uuid: randomId(),
-          label: 'Accordion2',
-          content: '<p>Hello this is rich text.</p><h1>This is a heading in rich text2</h1>'
+          label: 'Accordion Two',
+          content: '<p>Hello this is rich text.</p>'
         }
       ])
     }
@@ -47,7 +49,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@use '@/styles/base' as *;
+// @use '@/styles/base' as *;
 
 /* --------------------------------
 
