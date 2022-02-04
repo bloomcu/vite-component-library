@@ -25,7 +25,7 @@
 <script lang="ts">
 import { Content } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
-import Grid from '@/lib-components/blocks/Grid/Grid.vue'
+import Grid from '@/lib-components/components/Grid/Grid.vue'
 export default defineComponent({
   components: { Grid },
   props: {

@@ -13,8 +13,8 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import Grid from '@/lib-components/blocks/Grid/Grid.vue'
-import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
+import Grid from '@/lib-components/components/Grid/Grid.vue'
+import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 import Card from '@/lib-components/elements/Card/Card.vue'
 
 export default defineComponent({
@@ -28,12 +28,16 @@ export default defineComponent({
       type: Array,
       default: () => [
         {
-          title: 'Label',
-          description: 'Label 1'
+          title: 'Card One',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros.'
         },
         {
-          title: 'Label',
-          description: 'Label 2'
+          title: 'Card Two',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros.'
+        },
+        {
+          title: 'Card Three',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros.'
         }
       ]
     }

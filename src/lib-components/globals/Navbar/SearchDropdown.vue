@@ -81,7 +81,7 @@ import {
   PropType,
   ref
 } from '@vue/composition-api'
-import Search from '@/lib-components/blocks/Search/Search.vue'
+import Search from '@/lib-components/elements/Search/Search.vue'
 
 export default defineComponent({
   props: {
