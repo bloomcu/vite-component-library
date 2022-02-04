@@ -45,7 +45,7 @@ export default defineComponent({
     image: {
       type: Object as PropType<Image>,
       default: () => ({
-        src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg'
+        src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/640x480/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
       })
     }
   },

@@ -28,12 +28,16 @@ export default defineComponent({
       type: Array,
       default: () => [
         {
-          title: 'Label',
-          description: 'Label 1'
+          title: 'Card One',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros.'
         },
         {
-          title: 'Label',
-          description: 'Label 2'
+          title: 'Card Two',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros.'
+        },
+        {
+          title: 'Card Three',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros.'
         }
       ]
     }

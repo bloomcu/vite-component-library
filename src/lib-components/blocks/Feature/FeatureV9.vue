@@ -51,12 +51,10 @@ export default defineComponent({
           buttons: [
             {
               text: 'Shop Women'
-              // variant: "accent",
-              // size: "xl"
             }
           ],
           image: {
-            src: 'https://codyhouse.co/app/assets/img/feature-v9-img-1.jpg'
+            src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/720x720/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
           }
         },
         {
@@ -65,12 +63,11 @@ export default defineComponent({
           buttons: [
             {
               text: 'Shop Men'
-              // variant: "accent",
-              // size: "xl"
+
             }
           ],
           image: {
-            src: 'https://codyhouse.co/app/assets/img/feature-v9-img-2.jpg'
+            src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/720x720/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
           }
         }
       ])

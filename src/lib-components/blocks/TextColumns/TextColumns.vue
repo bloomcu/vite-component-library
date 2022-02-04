@@ -22,16 +22,22 @@ export default defineComponent({
       default: () => [
         {
           label: 'Label',
-          title: 'Labels',
-          subtitle: 'Label',
-          component: 'card'
+          title: 'Column One',
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
+          center: true
         },
         {
           label: 'Label',
-          title: 'Label',
-          subtitle: 'Label',
+          title: 'Column Two',
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
           center: true
-        }
+        },
+        {
+          label: 'Label',
+          title: 'Column Two',
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
+          center: true
+        },
       ]
     }
   },

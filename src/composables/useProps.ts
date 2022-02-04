@@ -33,13 +33,24 @@ const propGroups = {
     },
     buttons: {
       type: Array as PropType<Array<Button>>,
-      default: () => []
+      default: () => [
+        {
+          text: 'Primary Button',
+          href: '/button-href',
+          variant: 'primary'
+        },
+        {
+          text: 'Accent Button',
+          href: '/button-href',
+          variant: 'accent'
+        }
+      ]
     }
   },
   Button: {
     variant: {
       type: String as PropType<ButtonVariant>,
-      default: 'accent'
+      default: 'primary'
     },
     text: {
       type: String,

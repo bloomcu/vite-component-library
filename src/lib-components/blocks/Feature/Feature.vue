@@ -68,7 +68,8 @@ export default defineComponent({
         },
         {
           text: 'Link Text',
-          href: '/button-href'
+          href: '/button-href',
+          variant: 'accent'
         }
       ]
     },
