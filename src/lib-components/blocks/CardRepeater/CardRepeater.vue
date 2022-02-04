@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import Grid from '@/lib-components/blocks/Grid/Grid.vue'
+import Grid from '@/lib-components/components/Grid/Grid.vue'
 import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
 import Card from '@/lib-components/elements/Card/Card.vue'
 
