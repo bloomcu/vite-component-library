@@ -65,7 +65,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@use '@/styles/base' as *;
+// @use '@/styles/base' as *;
+@import '@/styles/base/mixins';
 
 /* --------------------------------
 
