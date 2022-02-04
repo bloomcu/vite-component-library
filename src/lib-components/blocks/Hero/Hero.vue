@@ -24,7 +24,7 @@ import { useProps } from '@/composables/useProps'
 import { appendToSet } from '@/helpers'
 import { Button, Image } from '@/types'
 
-import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
+import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 useProps()
 export default defineComponent({

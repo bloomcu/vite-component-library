@@ -26,7 +26,7 @@
 import { computed, defineComponent, PropType } from '@vue/composition-api'
 import { BreakPointBlock } from '@/types'
 import { appendToSet } from '@/helpers'
-import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
+import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 type GridGap = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '0';
 type ColNumber = 1 | 2 | 3 | 4 | 6 | 12
 export default defineComponent({

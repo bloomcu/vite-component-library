@@ -11,7 +11,7 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
 import Grid from '@/lib-components/components/Grid/Grid.vue'
-import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
+import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 export default defineComponent({
   name: 'TextColumns',

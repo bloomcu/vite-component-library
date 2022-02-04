@@ -33,7 +33,7 @@
 import { defineComponent, PropType } from '@vue/composition-api'
 
 // Components
-import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
+import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 // Types
 import { Button, Image } from '@/types'

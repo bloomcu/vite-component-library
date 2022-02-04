@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Image } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
-import ContentComponent from '@/lib-components/blocks/Content/ContentComponent.vue'
+import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 import { useProps } from '@/composables/useProps'
 useProps()
 export default defineComponent({
