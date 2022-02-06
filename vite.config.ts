@@ -28,30 +28,30 @@ export default defineConfig({
         },
       }
     }),
-    scss({
-      // sass: require('node-sass'),
-      processor: () => PostCSS(
-        [
-          autoprefixer({ overrideBrowserslist: 'Edge 18' }),
-          PurgeCSS({
-            content: [
-              "./index.html",
-              "./src/**/*.{vue,js,ts,jsx,tsx}",
-            ],
-            defaultExtractor(content) {
-              const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '')
-              return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || []
-            },
-            safelist: [/-(leave|enter|appear)(|-(to|from|active))$/, /^(?!(|.*?:)cursor-move).+-move$/, /^router-link(|-exact)-active$/, /data-v-.*/, /btn*/],
-          }),
-        ]),
-      output: 'dist/style.css',
-      prefix: '@import "src/styles/style.scss";',
-      includePaths: [
-        path.join(__dirname, '../../node_modules/'),
-        'node_modules/'
-      ]
-    }),
+    // scss({
+    //   // sass: require('node-sass'),
+    //   processor: () => PostCSS(
+    //     [
+    //       autoprefixer({ overrideBrowserslist: 'Edge 18' }),
+    //       PurgeCSS({
+    //         content: [
+    //           "./index.html",
+    //           "./src/**/*.{vue,js,ts,jsx,tsx}",
+    //         ],
+    //         defaultExtractor(content) {
+    //           const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '')
+    //           return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || []
+    //         },
+    //         safelist: [/-(leave|enter|appear)(|-(to|from|active))$/, /^(?!(|.*?:)cursor-move).+-move$/, /^router-link(|-exact)-active$/, /data-v-.*/, /btn*/],
+    //       }),
+    //     ]),
+    //   output: 'dist/style.css',
+    //   prefix: '@import "src/styles/style.scss";',
+    //   includePaths: [
+    //     path.join(__dirname, '../../node_modules/'),
+    //     'node_modules/'
+    //   ]
+    // }),
   ScriptSetup(),
   // purgecss({
   //   content: [

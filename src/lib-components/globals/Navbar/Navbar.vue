@@ -80,7 +80,7 @@ import {
   PropType
 } from '@vue/composition-api'
 import navbarScript from './NavbarScript'
-import LinkRepeater from '@/lib-components/components/LinkRepeater/LinkRepeater.vue'
+import LinkRepeater from '@/lib-components/blocks/LinkRepeater/LinkRepeater.vue'
 import DropdownIcon from './DropdownIcon.vue'
 import { Button, Logo, NavbarLink as NavbarLinkType } from '@/types'
 import AppLink from '@/lib-components/elements/Link/AppLink.vue'

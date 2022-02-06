@@ -1,5 +1,5 @@
 {
-  "name": "vite-codytestttt",
+  "name": "vite-codytest",
   "version": "0.0.2",
   "files": [
     "dist"
@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types -f",
+    "build:windows": "vite build && vue-tsc --emitDeclarationOnly && cd dist && ren src types",
     "type": "tsc src/index.ts --declaration --emitDeclarationOnly --esModuleInterop --skipLibCheck --outdir dist",
     "preserve": "vite build",
     "serve": "vite preview --port 5050",

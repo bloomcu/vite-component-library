@@ -1,17 +1,9 @@
 <template>
-  <div class="container max-width-adaptive-lg">
-    <ul
-      class="accordion js-accordion"
-      data-animation="on"
-      data-multi-items="on"
-    >
-      <AccordionItem
-        v-for="child in children"
-        :key="child.uuid"
-        :accordion="child"
-      />
-    </ul>
-  </div>
+    <div class="container max-width-adaptive-lg">
+        <ul class="accordion js-accordion" data-animation="on" data-multi-items="on">
+            <AccordionItem v-for="child in children" :key="child.uuid" :accordion="child" />
+        </ul>
+    </div>
 </template>
 
 <script lang="ts">
@@ -22,29 +14,29 @@ import { Accordion } from '@/types'
 import { randomId } from '@/helpers'
 
 export default defineComponent({
-  props: {
-    children: {
-      type: Array as PropType<Accordion[]>,
-      default: () => ([
-        {
-          uuid: randomId(),
-          label: 'Accordion One',
-          content: '<p>Hello this is rich text.</p>'
-        },
-        {
-          uuid: randomId(),
-          label: 'Accordion Two',
-          content: '<p>Hello this is rich text.</p>'
+    props: {
+        children: {
+            type: Array as PropType<Accordion[]>,
+            default: () => ([
+                {
+                    uuid: randomId(),
+                    label: 'Accordion One',
+                    content: '<p>Hello this is rich text.</p>'
+                },
+                {
+                    uuid: randomId(),
+                    label: 'Accordion Two',
+                    content: '<p>Hello this is rich text.</p>'
+                }
+            ])
         }
-      ])
-    }
-  },
-  setup () {
-    onMounted(() => {
-      AccordionScript()
-    })
-  },
-  components: { AccordionItem }
+    },
+    setup() {
+        onMounted(() => {
+            AccordionScript()
+        })
+    },
+    components: { AccordionItem }
 })
 </script>
 

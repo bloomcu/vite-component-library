@@ -2,6 +2,7 @@
 
 import Util from '@/helpers/Util'
 export default function AccordionScript () {
+  if (typeof window === 'undefined') return
   // Usage: codyhouse.co/license
   (function () {
     const Accordion = function (element) {

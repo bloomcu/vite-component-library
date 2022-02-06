@@ -5,7 +5,7 @@ declare module '*.vue' {
   export default Vue
 }
 
-// declare module "rollup-plugin-scss" {
-//   function placeholder(any): any;
-//   export = placeholder;
-// }
+declare module "rollup-plugin-scss" {
+  function placeholder(any): any;
+  export = placeholder;
+}

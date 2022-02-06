@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Child } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
-import LinkRepeater from '@/lib-components/components/LinkRepeater/LinkRepeater.vue'
+import LinkRepeater from '@/lib-components/blocks/LinkRepeater/LinkRepeater.vue'
 export default defineComponent({
   props: {
     children: {

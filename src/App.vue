@@ -11,8 +11,8 @@
     <VideoBackgroundHero/>
     <Modal uuid="123" title="The modal title"/>
     <AppButton text="Trigger Modal" trigger="123"/>
-    <SubNavigation/>
-    <Table/>
+    <!-- <SubNavigation/> -->
+    <!-- <Table/> -->
     <Testimonial/>
     <TextColumns/>
   </div>
