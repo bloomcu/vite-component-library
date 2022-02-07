@@ -15,6 +15,7 @@
   "types": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
+    "build:notypes": "vite build",
     "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types -f",
     "build:windows": "vite build && vue-tsc --emitDeclarationOnly && cd dist && ren src types",
     "type": "tsc src/index.ts --declaration --emitDeclarationOnly --esModuleInterop --skipLibCheck --outdir dist",
