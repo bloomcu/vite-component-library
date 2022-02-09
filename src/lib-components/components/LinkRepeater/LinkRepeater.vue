@@ -2,6 +2,7 @@
   <!-- TODO: make this use the grid component -->
   <ul class="grid gap-lg">
     <li
+      v-if="links.length"
       v-for="group in links"
       :key="group.title"
       class="col-6@xs col-3@md"

@@ -3,14 +3,14 @@
     <div class="container max-width-adaptive-sm">
       <figure class="flex justify-center margin-bottom-md reveal-fx reveal-fx--scale">
         <img
-          class="block width-xxl height-xxl radius-50% border border-bg border-2 shadow-sm"
-          v-bind="image"
+          class="block object-cover width-xxl height-xxl radius-50% border border-bg border-2 shadow-sm"
+          :src="`https://d25r5txdw1c9o7.cloudfront.net/fit-in/120x120/${image.src}`"
         >
       </figure>
 
       <div class="testimonial__block-wrapper margin-bottom-lg">
         <blockquote class="text-lg text-center line-height-md ">
-          {{ description }}
+          {{ testimonial }}
         </blockquote>
 
         <svg
@@ -44,6 +44,10 @@ import { defineComponent, PropType } from '@vue/composition-api'
 
 export default defineComponent({
   props: {
+    testimonial: {
+      type: String,
+      default: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi atque doloremque beatae! Doloremque perspiciatis aliquid repellat quasi praesentium, minima nobis assumenda ex?'
+    },
     title: {
       type: String,
       default: 'Emily Ewing'
@@ -52,14 +56,10 @@ export default defineComponent({
       type: String,
       default: 'Designer at CompanyXs'
     },
-    description: {
-      type: String,
-      default: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi atque doloremque beatae! Doloremque perspiciatis aliquid repellat quasi praesentium, minima nobis assumenda ex?'
-    },
     image: {
       type: Object as PropType<Image>,
       default: () => ({
-        src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/120x120/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
+        src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
       })
     }
   }

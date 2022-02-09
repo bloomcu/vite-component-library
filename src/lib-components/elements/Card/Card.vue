@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <figure class="card__img">
-      <img v-bind="image">
+      <img :src="`https://d25r5txdw1c9o7.cloudfront.net/fit-in/640x480/${image.src}`">
     </figure>
 
     <div class="card__content">
@@ -45,7 +45,7 @@ export default defineComponent({
     image: {
       type: Object as PropType<Image>,
       default: () => ({
-        src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/640x480/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
+        src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
       })
     }
   },

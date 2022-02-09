@@ -5,7 +5,7 @@
         v-for="(child, i) in children"
         :key="i"
         class="feature-v9__block col-6@md"
-        :style="`background-image: url(${child.image.src});`"
+        :style="`background-image: url(https://d25r5txdw1c9o7.cloudfront.net/fit-in/720x720/${child.image.src});`"
       >
         <div class="feature-v9__content text-center max-width-xxxs">
           <div class="text-component">
@@ -54,7 +54,7 @@ export default defineComponent({
             }
           ],
           image: {
-            src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/720x720/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
+            src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
           }
         },
         {
@@ -67,7 +67,7 @@ export default defineComponent({
             }
           ],
           image: {
-            src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/720x720/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
+            src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
           }
         }
       ])

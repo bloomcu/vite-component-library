@@ -1,9 +1,13 @@
 export type ButtonVariant = 'primary' | 'subtle' | 'accent' | 'disabled';
 export type ButtonSize = 'sm' | 'md' | 'lg';
+export type GridGap = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '0';
+export type ColNumber = 1 | 2 | 3 | 4 | 6 | 12
+
 export interface Block {
   component?: any;
   uuid?: string;
 }
+
 export interface FeatureV9Item {
   image: string;
   headerText: string;

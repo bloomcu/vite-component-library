@@ -1,7 +1,8 @@
 <template>
   <Grid
     v-slot="{ column }"
-    :cols="3"
+    :gap="gap"
+    :cols="cols"
     :columns="columns"
   >
     <ContentComponent v-bind="column" />
@@ -9,7 +10,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, PropType } from '@vue/composition-api'
+import { GridGap, ColNumber } from '@/types'
 import Grid from '@/lib-components/components/Grid/Grid.vue'
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
@@ -17,26 +19,26 @@ export default defineComponent({
   name: 'TextColumns',
   components: { Grid, ContentComponent },
   props: {
+    gap: {
+      type: String as PropType<GridGap>,
+      default: 'xl'
+    },
+    cols: {
+      type: [Number, String] as PropType<ColNumber>,
+      default: 2
+    },
     columns: {
       type: Array,
       default: () => [
         {
           label: 'Label',
           title: 'Column One',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
-          center: true
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
         },
         {
           label: 'Label',
           title: 'Column Two',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
-          center: true
-        },
-        {
-          label: 'Label',
-          title: 'Column Two',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
-          center: true
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sem lorem, eleifend eget eros id, vulputate.',
         },
       ]
     }

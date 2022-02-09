@@ -1,29 +1,33 @@
 <template>
-  <section class="position-relative">
-    <div class="container max-width-adaptive-lg">
-      <div class="grid gap-md items-center">
+  <section class="position-relative z-index-1 padding-y-xl bg-dark">
+    <div class="container max-width-adaptive-lg position-relative">
+      <div 
+        class="grid padding-x-md padding-x-0@md"
+        :class="invert ? 'justify-end' : ''"
+      >
         <!-- Column: Content -->
-        <div
-          class="col-6@md"
-          :class="invert ? 'order-2@md' : ''"
-        >
-          <ContentComponent
-            :label="label"
-            :title="title"
-            :subtitle="subtitle"
-            :buttons="buttons"
-          />
+        <div class="position-relative z-index-2 col-6@md col-5@lg">
+          <div class="text-component bg padding-md padding-lg@md inner-glow shadow-sm line-height-md margin-y-xxl">
+            <ContentComponent
+              :label="label"
+              :title="title"
+              :subtitle="subtitle"
+              :buttons="buttons"
+            />
+          </div>
         </div>
-
+        
         <!-- Column: Image -->
-        <div class="col-6@md">
-          <figure>
-            <img
-              class="block width-100%"
-              :src="`https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/${image.src}`"
-            >
-          </figure>
-        </div>
+        <figure 
+          class="position-absolute z-index-1 top-0 height-100% width-100% col-10@md"
+          :class="invert ? 'left-0' : 'right-0'"
+        >
+          <img 
+            class="block width-100% height-100% object-cover" 
+            :src="`https://d25r5txdw1c9o7.cloudfront.net/fit-in/1200x900/${image.src}`"
+            alt="Image description"
+          >
+        </figure>
       </div>
     </div>
   </section>
@@ -39,7 +43,7 @@ import ContentComponent from '@/lib-components/components/Content/ContentCompone
 import { Button, Image } from '@/types'
 
 export default defineComponent({
-  name: 'Feature',
+  name: 'FeatureV11',
 
   props: {
     invert: {
@@ -56,7 +60,7 @@ export default defineComponent({
     },
     subtitle: {
       type: String,
-      default: 'The subtitle'
+      default: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, rem neque doloribus impedit explicabo.'
     },
     buttons: {
       type: Array as PropType<Array<Button>>,

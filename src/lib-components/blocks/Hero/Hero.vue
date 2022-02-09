@@ -20,18 +20,49 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from '@vue/composition-api'
-import { useProps } from '@/composables/useProps'
+// import { useProps } from '@/composables/useProps'
 import { appendToSet } from '@/helpers'
 import { Button, Image } from '@/types'
 
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
-useProps()
+// useProps()
 export default defineComponent({
   name: 'Hero',
 
   props: {
-    ...useProps().group(['ContentComponent']),
+    // ...useProps().group(['ContentComponent']),
+    center: {
+      type: Boolean,
+      default: false
+    },
+    label: {
+      type: String,
+      default: 'The label'
+    },
+    title: {
+      type: String,
+      default: 'The title'
+    },
+    subtitle: {
+      type: String,
+      default: 'The subtitle'
+    },
+    buttons: {
+      type: Array as PropType<Array<Button>>,
+      default: () => [
+        {
+          text: 'Primary Button',
+          href: '/button-href',
+          variant: 'primary'
+        },
+        {
+          text: 'Accent Button',
+          href: '/button-href',
+          variant: 'accent'
+        }
+      ]
+    },
     fullscreen: {
       type: Boolean,
       default: false
@@ -39,12 +70,13 @@ export default defineComponent({
     image: {
       type: Object as PropType<Image>,
       default: () => ({
-        src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1280x720/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
+        src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
       })
     }
   },
 
   setup (props) {
+    
     const classBinds = computed(() => {
       let classSet = ''
 
@@ -64,7 +96,7 @@ export default defineComponent({
     const styleBinds = computed(() => {
       return props.image.src
         ? {
-            'background-image': `url(${props.image.src})`
+            'background-image': `url(https://d25r5txdw1c9o7.cloudfront.net/fit-in/1280x720/${props.image.src})`
           }
         : {}
     })

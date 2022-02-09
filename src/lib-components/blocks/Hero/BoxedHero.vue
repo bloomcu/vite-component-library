@@ -1,7 +1,7 @@
 <template>
   <section
-    class="bg-cover bg-center bg-no-repeat padding-y-xxl"
-    :style="`background-image: url(${image.src})`"
+    class="boxed-hero bg-cover bg-center bg-no-repeat padding-y-xxl"
+    :style="`background-image: url(https://d25r5txdw1c9o7.cloudfront.net/fit-in/1280x720/${image.src})`"
   >
     <div class="container max-width-adaptive-sm">
       <ContentComponent
@@ -25,7 +25,7 @@ export default defineComponent({
     image: {
       type: Object as PropType<Image>,
       default: () => ({
-        src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1280x720/files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
+        src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
       })
     }
   }

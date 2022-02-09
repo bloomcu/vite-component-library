@@ -1,7 +1,7 @@
 <template>
   <Grid
     v-slot="{ column }"
-    :cols="2"
+    :cols="cols"
     :columns="children"
   >
     <div>
@@ -23,12 +23,16 @@
 </template>
 
 <script lang="ts">
-import { Content } from '@/types'
+import { ColNumber, Content } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
 import Grid from '@/lib-components/components/Grid/Grid.vue'
 export default defineComponent({
   components: { Grid },
   props: {
+    cols: {
+      type: [Number, String] as PropType<ColNumber>,
+      default: 2
+    },
     children: {
       type: Array as PropType<Content[] | any>,
       default: () => ([

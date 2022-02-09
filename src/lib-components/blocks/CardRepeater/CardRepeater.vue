@@ -1,7 +1,7 @@
 <template>
   <Grid
     v-slot="{ column }"
-    :cols="3"
+    :cols="cols"
     :columns="columns"
   >
     <component
@@ -12,7 +12,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent , PropType} from '@vue/composition-api'
+import { GridGap, ColNumber } from '@/types'
 import Grid from '@/lib-components/components/Grid/Grid.vue'
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 import Card from '@/lib-components/elements/Card/Card.vue'
@@ -23,6 +24,14 @@ export default defineComponent({
     variant: {
       type: String,
       default: 'Card'
+    },
+    gap: {
+      type: String as PropType<GridGap>,
+      default: 'xl'
+    },
+    cols: {
+      type: [Number, String] as PropType<ColNumber>,
+      default: 2
     },
     columns: {
       type: Array,

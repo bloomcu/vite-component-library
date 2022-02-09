@@ -13,7 +13,10 @@
     </div>
 
     <figure class="hero-video-bg__video" aria-hidden="true">
-      <img v-bind="image" />
+      <img 
+        :src="`https://d25r5txdw1c9o7.cloudfront.net/fit-in/1280x720/${image.src}`"
+        :alt="image.alt"
+      />
       <video autoplay loop muted playsinline v-bind="video" />
     </figure>
   </section>
@@ -28,10 +31,6 @@ import ContentComponent from '@/lib-components/components/Content/ContentCompone
 export default defineComponent({
   components: { ContentComponent },
   props: {
-    center: {
-      type: Boolean,
-      default: false
-    },
     label: {
       type: String,
       default: 'The label'
@@ -47,17 +46,18 @@ export default defineComponent({
     buttons: {
       type: Array as PropType<Array<Button>>,
       default: () => []
-    }, image: {
+    }, 
+    image: {
       type: Object as PropType<Image>,
       default: () => ({
-        src: 'http://placeimg.com/640/480/technics',
+        src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg',
         alt: 'img'
       })
     },
     video: {
       type: Object as PropType<Video>,
       default: () => ({
-        src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+        src: 'https://player.vimeo.com/external/417260615.sd.mp4?s=dfae4a81398d89ed47def5d09b7730cb037f1692'
       })
     }
   }

@@ -24,11 +24,10 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@vue/composition-api'
-import { BreakPointBlock } from '@/types'
+import { BreakPointBlock, GridGap, ColNumber } from '@/types'
 import { appendToSet } from '@/helpers'
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
-type GridGap = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '0';
-type ColNumber = 1 | 2 | 3 | 4 | 6 | 12
+
 export default defineComponent({
   props: {
     gap: {
@@ -36,7 +35,7 @@ export default defineComponent({
       default: 'xl'
     },
     cols: {
-      type: Number as PropType<ColNumber>,
+      type: [Number, String] as PropType<ColNumber>,
       default: 4
     },
     columns: {

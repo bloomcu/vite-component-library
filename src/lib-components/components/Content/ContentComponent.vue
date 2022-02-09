@@ -16,6 +16,8 @@
         {{ subtitle }}
       </p>
     </div>
+    
+    <div v-if="body" v-html="body"></div>
 
     <div
       v-if="buttons.length"
@@ -59,7 +61,9 @@ export default defineComponent({
     },
     subtitle: {
       type: String,
-      default: 'The subtitle'
+    },
+    body: {
+      type: String,
     },
     buttons: {
       type: Array as PropType<Array<Button>>,
