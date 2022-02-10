@@ -1,32 +1,44 @@
 <template>
   <div class="container max-width-adaptive-lg">
-    <table class="table table--loaded table--expanded table--expanded@xs position-relative z-index-1 width-100% text-unit-em text-sm js-table" aria-label="Table Example">
+    <table
+      class="table table--expanded@xs position-relative z-index-1 width-100% text-unit-em text-sm js-table"
+      aria-label="Table Example"
+    >
       <thead class="table__header">
         <tr class="table__row">
           <th
-            v-for="(column, index) in columns" 
-            :key="index"
-            class="table__cell text-left"
+            v-for="(row, i) in rows"
+            :key="row.uuid"
+            class="table__cell"
+            :class="i === rows.length - 1 ? 'text-right' : 'text-left'"
             scope="col"
           >
-            {{ column }}
+            {{ row.display }}
           </th>
         </tr>
       </thead>
       <tbody class="table__body">
-        <tr 
-          v-for="(row, index) in rows"
-          :key="index"
+        <tr
+          v-for="(column, i) in columns"
+          :key="i"
           class="table__row"
         >
-          <td 
-            v-for="(cell, index) in row"
-            :key="index"
-            class="table__cell" 
+          <td
+            v-for="x in rows.length"
+            :key="x"
+            class="table__cell"
             role="cell"
+            :class="{
+              'text-right': x - 1 === rows.length - 1
+            }"
           >
-            <span class="table__label" aria-hidden="true">{{ columns[index] }}:</span> 
-            {{ cell }}
+            <span
+              class="table__label"
+              aria-hidden="true"
+            >
+              {{ rows[x - 1].display }}:
+            </span>
+            {{ column[rows[x - 1].key] }}
           </td>
         </tr>
       </tbody>
@@ -35,24 +47,54 @@
 </template>
 
 <script lang="ts">
+import { randomId } from '@/helpers'
 import { defineComponent, onMounted, PropType } from '@vue/composition-api'
-
+import TableScript from './script'
+interface TableRow {
+  uuid: string
+  display: string
+  key: string
+}
 export default defineComponent({
   props: {
+    rows: {
+      type: Array as PropType<TableRow[]>,
+      default: () => ([
+        {
+          uuid: randomId(),
+          display: 'Name',
+          key: 'name'
+        },
+        {
+          uuid: randomId(),
+          display: 'Job',
+          key: 'job'
+        },
+        {
+          uuid: randomId(),
+          display: 'Company',
+          key: 'company'
+        },
+        {
+          uuid: randomId(),
+          display: 'Salary',
+          key: 'salary'
+        }
+      ])
+    },
     columns: {
       type: Array as PropType<any[]>,
-      default: () => (['Product', 'Term', 'APR'])
-    },
-    rows: {
-      type: Array as PropType<any[]>,
-      default: () => ([
-        ['New Car', '60 Months', '2.74%'],
-        ['Used Car (1-3 years old)', '60 Months', '2.74%'],
-        ['Used Car (4-5 years old)', '48 Months', '2.74%'],
-        ['Used Car (6-7 years old)', '36 Months', '2.74%'],
-        ['Used Car (8+ years old)', '36 Months', '3.74%'],
-      ])
+      default: () => (
+        [
+          
+        ]
+      )
     }
+  },
+  setup () {
+    onMounted(() => {
+      TableScript()
+    })
   }
 })
 

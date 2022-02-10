@@ -8,16 +8,16 @@
     <!-- <Accordion/> -->
     <!-- <CardRepeater/> -->
     <!-- <DetailsList/> -->
-    <!-- <Feature/> -->
+    <Feature/>
     <!-- <FeatureV7/> -->
     <!-- <FeatureV9/> -->
-    <FeatureV11/>
+    <!-- <FeatureV11/> -->
     <!-- <BoxedHero/> -->
-    <!-- <Hero :center="false" :fullscreen="false"/> -->
+    <Hero :center="false" :fullscreen="false"/>
     <!-- <VideoBackgroundHero/> -->
     <!-- <Modal uuid="123" title="The modal title"/> -->
     <!-- <SubNavigation/> -->
-    <!-- <Table/> -->
+    <AppTable/>
     <!-- <Testimonial/> -->
     <!-- <TextColumns :cols="'2'"/> -->
   </div>
@@ -41,7 +41,7 @@ import Hero from './lib-components/blocks/Hero/Hero.vue'
 import VideoBackgroundHero from './lib-components/blocks/Hero/VideoBackgroundHero.vue'
 import Modal from './lib-components/blocks/Modal/Modal.vue'
 import SubNavigation from './lib-components/blocks/Navigation/SubNavigation.vue'
-import Table from './lib-components/blocks/Table/AppTable.vue'
+import AppTable from './lib-components/blocks/Table/AppTable.vue'
 import Testimonial from './lib-components/blocks/Testimonial/Testimonial.vue'
 import TextColumns from './lib-components/blocks/TextColumns/TextColumns.vue'
 

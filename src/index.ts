@@ -6,6 +6,7 @@ export { default as Hero } from '@/lib-components/blocks/Hero/Hero.vue'
 export { default as BoxedHero } from '@/lib-components/blocks/Hero/BoxedHero.vue'
 export { default as VideoBackgroundHero } from '@/lib-components/blocks/Hero/VideoBackgroundHero.vue'
 export { default as Modal } from '@/lib-components/blocks/Modal/Modal.vue'
+export { default as AppTable } from '@/lib-components/blocks/Table/AppTable.vue'
 export { default as Testimonial } from '@/lib-components/blocks/Testimonial/Testimonial.vue'
 export { default as TextColumns } from '@/lib-components/blocks/TextColumns/TextColumns.vue'
 
