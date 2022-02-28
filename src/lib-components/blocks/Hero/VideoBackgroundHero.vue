@@ -29,7 +29,6 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from '@vue/composition-api'
-import { useProps } from '@/composables/useProps'
 import { appendToSet } from '@/helpers'
 import { BlockConfig, Button, Image, Video } from '@/types'
 
@@ -40,8 +39,6 @@ export default defineComponent({
   name: 'VideoBackgroundHero',
   
   props: {
-    ...useProps().group(['ContentComponent']),
-    
     config: {
       type: Object as PropType<BlockConfig>,
       default: () => ({
@@ -52,6 +49,37 @@ export default defineComponent({
         marginTop: 'none',
         marginBottom: 'none',
       })
+    },
+    
+    label: {
+      type: String,
+      default: 'The label'
+    },
+    
+    title: {
+      type: String,
+      default: 'The title'
+    },
+    
+    subtitle: {
+      type: String,
+      default: 'The subtitle'
+    },
+    
+    buttons: {
+      type: Array as PropType<Array<Button>>,
+      default: () => [
+        {
+          text: 'Primary Button',
+          href: '/button-href',
+          variant: 'primary'
+        },
+        {
+          text: 'Accent Button',
+          href: '/button-href',
+          variant: 'accent'
+        }
+      ]
     },
     
     image: {

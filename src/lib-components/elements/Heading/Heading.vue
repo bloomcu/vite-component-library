@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { HeadingLevel } from '@/types'
+import { HeadingLevel, TextSize } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
 
 export default defineComponent({
