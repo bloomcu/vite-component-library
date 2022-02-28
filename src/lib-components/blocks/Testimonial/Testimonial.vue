@@ -1,5 +1,8 @@
 <template>
-  <section class="testimonial position-relative z-index-1 padding-y-xxl">
+  <section 
+    :class="classBinds" 
+    class="testimonial position-relative z-index-1"
+  >
     <div class="container max-width-adaptive-sm">
       <figure class="flex justify-center margin-bottom-md reveal-fx reveal-fx--scale">
         <img
@@ -39,28 +42,69 @@
 </template>
 
 <script lang="ts">
-import { Image } from '@/types'
-import { defineComponent, PropType } from '@vue/composition-api'
+import { defineComponent, PropType, computed } from '@vue/composition-api'
+import { appendToSet } from '@/helpers'
+import { BlockConfig, Image } from '@/types'
 
 export default defineComponent({
+  name: 'Testimonial',
+  
   props: {
+    config: {
+      type: Object as PropType<BlockConfig>,
+      default: () => ({
+        paddingTop: 'lg',
+        paddingBottom: 'lg',
+        marginTop: 'none',
+        marginBottom: 'none',
+      })
+    },
+    
     testimonial: {
       type: String,
       default: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi atque doloremque beatae! Doloremque perspiciatis aliquid repellat quasi praesentium, minima nobis assumenda ex?'
     },
+    
     title: {
       type: String,
       default: 'Emily Ewing'
     },
+    
     subtitle: {
       type: String,
       default: 'Designer at CompanyXs'
     },
+    
     image: {
       type: Object as PropType<Image>,
       default: () => ({
         src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
       })
+    }
+  },
+  
+  setup(props) {
+    const classBinds = computed(() => {
+      let classSet = ''
+      
+      if (props.config.paddingTop != 'none') {
+        classSet = appendToSet(`padding-top-${props.config.paddingTop}`, classSet)
+      }
+      if (props.config.paddingBottom != 'none') {
+        classSet = appendToSet(`padding-bottom-${props.config.paddingBottom}`, classSet)
+      }
+      if (props.config.marginTop != 'none') {
+        classSet = appendToSet(`margin-top-${props.config.marginTop}`, classSet)
+      }
+      if (props.config.marginBottom != 'none') {
+        classSet = appendToSet(`margin-bottom-${props.config.marginBottom}`, classSet)
+      }
+
+      return classSet
+    })
+
+    return {
+      classBinds
     }
   }
 })

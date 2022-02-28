@@ -1,6 +1,7 @@
 <template>
   <Grid
     v-slot="{ column }"
+    :config="config"
     :gap="gap"
     :cols="cols"
     :columns="columns"
@@ -19,12 +20,14 @@
 <script lang="ts">
 import { defineComponent, PropType } from '@vue/composition-api'
 import { BlockConfig, GridGap, ColNumber } from '@/types'
+
+// Components
 import Grid from '@/lib-components/components/Grid/Grid.vue'
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 export default defineComponent({
   name: 'TextColumns',
-  components: { Grid, ContentComponent },
+  
   props: {
     config: {
       type: Object as PropType<BlockConfig>,
@@ -33,14 +36,17 @@ export default defineComponent({
         headingSize: 'xl',
       })
     },
+    
     gap: {
       type: String as PropType<GridGap>,
       default: 'xl'
     },
+    
     cols: {
       type: [Number, String] as PropType<ColNumber>,
       default: 2
     },
+    
     columns: {
       type: Array,
       default: () => [
@@ -57,7 +63,9 @@ export default defineComponent({
       ]
     }
   },
-
+  
+  components: { Grid, ContentComponent },
+  
   setup: () => ({
     ContentComponent
   })

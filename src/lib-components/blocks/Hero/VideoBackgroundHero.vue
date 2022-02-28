@@ -1,5 +1,8 @@
 <template>
-  <section class="hero-video-bg position-relative padding-y-xxl">
+  <section 
+  :class="classBinds"
+    class="hero-video-bg position-relative"
+  >
     <div class="container max-width-adaptive-sm">
       <div class="position-relative z-index-2 text-center">
         <ContentComponent
@@ -25,22 +28,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from '@vue/composition-api'
+import { defineComponent, PropType, computed } from '@vue/composition-api'
 import { useProps } from '@/composables/useProps'
+import { appendToSet } from '@/helpers'
 import { BlockConfig, Button, Image, Video } from '@/types'
+
+// Components
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 export default defineComponent({
-  components: { ContentComponent },
+  name: 'VideoBackgroundHero',
+  
   props: {
     ...useProps().group(['ContentComponent']),
+    
     config: {
       type: Object as PropType<BlockConfig>,
       default: () => ({
         headingLevel: '1',
         headingSize: 'xxl',
+        paddingTop: 'xxl',
+        paddingBottom: 'xxl',
+        marginTop: 'none',
+        marginBottom: 'none',
       })
     },
+    
     image: {
       type: Object as PropType<Image>,
       default: () => ({
@@ -48,13 +61,41 @@ export default defineComponent({
         alt: 'img'
       })
     },
+    
     video: {
       type: Object as PropType<Video>,
       default: () => ({
         src: 'https://player.vimeo.com/external/417260615.sd.mp4?s=dfae4a81398d89ed47def5d09b7730cb037f1692'
       })
     }
-  }
+  },
+  
+  setup(props) {
+    const classBinds = computed(() => {
+      let classSet = ''
+      
+      if (props.config.paddingTop != 'none') {
+        classSet = appendToSet(`padding-top-${props.config.paddingTop}`, classSet)
+      }
+      if (props.config.paddingBottom != 'none') {
+        classSet = appendToSet(`padding-bottom-${props.config.paddingBottom}`, classSet)
+      }
+      if (props.config.marginTop != 'none') {
+        classSet = appendToSet(`margin-top-${props.config.marginTop}`, classSet)
+      }
+      if (props.config.marginBottom != 'none') {
+        classSet = appendToSet(`margin-bottom-${props.config.marginBottom}`, classSet)
+      }
+
+      return classSet
+    })
+
+    return {
+      classBinds
+    }
+  },
+  
+  components: { ContentComponent },
 })
 </script>
 

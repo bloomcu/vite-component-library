@@ -14,9 +14,15 @@ export type Fullscreen = true | false;
 
 export type HeadingLevel = '1' | '2' | '3' | '4' | '5' | '6';
 export type TextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl';
+export type BlockSpacing = 'none' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
+
 export interface BlockConfig {
-  headingLevel?: HeadingLevel;
-  headingSize?: TextSize;
+  headingLevel?:  HeadingLevel;
+  headingSize?:   TextSize;
+  paddingTop?:    BlockSpacing;
+  paddingBottom?: BlockSpacing;
+  marginTop?:     BlockSpacing;
+  marginBottom?:  BlockSpacing;
 }
 
 export interface FeatureV9Item {
@@ -24,7 +30,7 @@ export interface FeatureV9Item {
   headerText: string;
   href?: string;
   action?: (...args: any) => any;
-  buttonButtonVariant?: ButtonVariant;
+  buttonVariant?: ButtonVariant;
   buttonText: string;
   description: string;
 }

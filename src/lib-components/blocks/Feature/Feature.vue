@@ -1,5 +1,8 @@
 <template>
-  <section class="position-relative">
+  <section 
+    :class="classBinds" 
+    class="position-relative"
+  >
     <div class="container max-width-adaptive-lg">
       <div class="grid gap-md items-center">
         <!-- Column: Content -->
@@ -32,7 +35,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from '@vue/composition-api'
+import { defineComponent, PropType, computed } from '@vue/composition-api'
+import { appendToSet } from '@/helpers'
 
 // Components
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
@@ -47,36 +51,34 @@ export default defineComponent({
     config: {
       type: Object as PropType<BlockConfig>,
       default: () => ({
-        headingLevel: '1',
-        headingSize: 'xxl',
+        headingLevel: '2',
+        headingSize: 'xl',
+        paddingTop: 'lg',
+        paddingBottom: 'lg',
+        marginTop: 'none',
+        marginBottom: 'none',
       })
     },
+    
     orientation: {
       type: String as PropType<Orientation>
     },
-    // flip: {
-    //   type: Object as PropType<Flip>,
-    //   default: () => ({
-    //     horizontal: false,
-    //     vertical: false
-    //   })
-    // },
-    // invert: {
-    //   type: Boolean,
-    //   default: false
-    // },
+    
     label: {
       type: String,
       default: 'The label'
     },
+    
     title: {
       type: String,
       default: 'The title'
     },
+    
     subtitle: {
       type: String,
       default: 'The subtitle'
     },
+    
     buttons: {
       type: Array as PropType<Array<Button>>,
       default: () => [
@@ -92,11 +94,37 @@ export default defineComponent({
         }
       ]
     },
+    
     image: {
       type: Object as PropType<Image>,
       default: () => ({
         src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
       })
+    }
+  },
+  
+  setup(props) {
+    const classBinds = computed(() => {
+      let classSet = ''
+      
+      if (props.config.paddingTop != 'none') {
+        classSet = appendToSet(`padding-top-${props.config.paddingTop}`, classSet)
+      }
+      if (props.config.paddingBottom != 'none') {
+        classSet = appendToSet(`padding-bottom-${props.config.paddingBottom}`, classSet)
+      }
+      if (props.config.marginTop != 'none') {
+        classSet = appendToSet(`margin-top-${props.config.marginTop}`, classSet)
+      }
+      if (props.config.marginBottom != 'none') {
+        classSet = appendToSet(`margin-bottom-${props.config.marginBottom}`, classSet)
+      }
+
+      return classSet
+    })
+
+    return {
+      classBinds
     }
   },
 

@@ -1,5 +1,8 @@
 <template>
-  <div class="container max-width-adaptive-lg">
+  <section 
+    :class="classBinds" 
+    class="container max-width-adaptive-lg"
+  >
     <table class="table table--loaded table--expanded table--expanded@xs position-relative z-index-1 width-100% text-unit-em text-sm js-table" aria-label="Table Example">
       <thead class="table__header">
         <tr class="table__row">
@@ -31,18 +34,35 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, PropType } from '@vue/composition-api'
+import { defineComponent, onMounted, PropType, computed } from '@vue/composition-api'
+import { appendToSet } from '@/helpers'
+
+// Types
+import { BlockConfig } from '@/types'
 
 export default defineComponent({
+  name: 'AppTable',
+  
   props: {
+    config: {
+      type: Object as PropType<BlockConfig>,
+      default: () => ({
+        paddingTop: 'lg',
+        paddingBottom: 'lg',
+        marginTop: 'none',
+        marginBottom: 'none',
+      })
+    },
+    
     columns: {
       type: Array as PropType<any[]>,
       default: () => (['Product', 'Term', 'APR'])
     },
+    
     rows: {
       type: Array as PropType<any[]>,
       default: () => ([
@@ -53,9 +73,33 @@ export default defineComponent({
         ['Used Car (8+ years old)', '36 Months', '3.74%'],
       ])
     }
+  },
+  
+  setup(props) {
+    const classBinds = computed(() => {
+      let classSet = ''
+      
+      if (props.config.paddingTop != 'none') {
+        classSet = appendToSet(`padding-top-${props.config.paddingTop}`, classSet)
+      }
+      if (props.config.paddingBottom != 'none') {
+        classSet = appendToSet(`padding-bottom-${props.config.paddingBottom}`, classSet)
+      }
+      if (props.config.marginTop != 'none') {
+        classSet = appendToSet(`margin-top-${props.config.marginTop}`, classSet)
+      }
+      if (props.config.marginBottom != 'none') {
+        classSet = appendToSet(`margin-bottom-${props.config.marginBottom}`, classSet)
+      }
+
+      return classSet
+    })
+
+    return {
+      classBinds
+    }
   }
 })
-
 </script>
 
 <style lang="scss">

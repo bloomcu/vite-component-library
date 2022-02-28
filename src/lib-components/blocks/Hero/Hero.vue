@@ -2,7 +2,7 @@
   <section
     :class="classBinds"
     :style="styleBinds"
-    class="hero bg position-relative padding-y-xxl"
+    class="hero bg position-relative"
   >
     <div class="container max-width-adaptive-lg">
       <div class="content-wrapper position-relative max-width-xs z-index-2">
@@ -26,56 +26,37 @@ import { useProps } from '@/composables/useProps'
 import { appendToSet } from '@/helpers'
 import { BlockConfig, Button, Image } from '@/types'
 
+// Components
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
-// useProps()
 export default defineComponent({
   name: 'Hero',
 
   props: {
     ...useProps().group(['ContentComponent']),
+    
     config: {
       type: Object as PropType<BlockConfig>,
       default: () => ({
         headingLevel: '1',
         headingSize: 'xxl',
+        paddingTop: 'xxl',
+        paddingBottom: 'xxl',
+        marginTop: 'none',
+        marginBottom: 'none',
       })
     },
+    
     align: {
       type: String as PropType<Align>,
       default: 'left'
     },
+    
     fullscreen: {
       type: Boolean,
       default: false
     },
-    // label: {
-    //   type: String,
-    //   default: 'The label'
-    // },
-    // title: {
-    //   type: String,
-    //   default: 'The title'
-    // },
-    // subtitle: {
-    //   type: String,
-    //   default: 'The subtitle'
-    // },
-    // buttons: {
-    //   type: Array as PropType<Array<Button>>,
-    //   default: () => [
-    //     {
-    //       text: 'Primary Button',
-    //       href: '/button-href',
-    //       variant: 'primary'
-    //     },
-    //     {
-    //       text: 'Accent Button',
-    //       href: '/button-href',
-    //       variant: 'accent'
-    //     }
-    //   ]
-    // },
+    
     image: {
       type: Object as PropType<Image>,
       default: () => ({
@@ -84,11 +65,22 @@ export default defineComponent({
     }
   },
 
-  setup (props) {
-    
+  setup(props) {
     const classBinds = computed(() => {
       let classSet = ''
-
+      
+      if (props.config.paddingTop != 'none') {
+        classSet = appendToSet(`padding-top-${props.config.paddingTop}`, classSet)
+      }
+      if (props.config.paddingBottom != 'none') {
+        classSet = appendToSet(`padding-bottom-${props.config.paddingBottom}`, classSet)
+      }
+      if (props.config.marginTop != 'none') {
+        classSet = appendToSet(`margin-top-${props.config.marginTop}`, classSet)
+      }
+      if (props.config.marginBottom != 'none') {
+        classSet = appendToSet(`margin-bottom-${props.config.marginBottom}`, classSet)
+      }
       if (props.align) {
         classSet = appendToSet(`hero--${props.align}`, classSet)
       }
