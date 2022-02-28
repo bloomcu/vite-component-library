@@ -7,11 +7,13 @@
     <div class="container max-width-adaptive-lg">
       <div class="content-wrapper position-relative max-width-xs z-index-2">
         <ContentComponent
-          :center="center"
+          :align="align"
           :label="label"
           :title="title"
           :subtitle="subtitle"
           :buttons="buttons"
+          :headingLevel="config.headingLevel"
+          :headingSize="config.headingSize"
         />
       </div>
     </div>
@@ -20,9 +22,9 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from '@vue/composition-api'
-// import { useProps } from '@/composables/useProps'
+import { useProps } from '@/composables/useProps'
 import { appendToSet } from '@/helpers'
-import { Button, Image } from '@/types'
+import { BlockConfig, Button, Image } from '@/types'
 
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
@@ -31,42 +33,49 @@ export default defineComponent({
   name: 'Hero',
 
   props: {
-    // ...useProps().group(['ContentComponent']),
-    center: {
-      type: Boolean,
-      default: false
+    ...useProps().group(['ContentComponent']),
+    config: {
+      type: Object as PropType<BlockConfig>,
+      default: () => ({
+        headingLevel: '1',
+        headingSize: 'xxl',
+      })
     },
-    label: {
-      type: String,
-      default: 'The label'
-    },
-    title: {
-      type: String,
-      default: 'The title'
-    },
-    subtitle: {
-      type: String,
-      default: 'The subtitle'
-    },
-    buttons: {
-      type: Array as PropType<Array<Button>>,
-      default: () => [
-        {
-          text: 'Primary Button',
-          href: '/button-href',
-          variant: 'primary'
-        },
-        {
-          text: 'Accent Button',
-          href: '/button-href',
-          variant: 'accent'
-        }
-      ]
+    align: {
+      type: String as PropType<Align>,
+      default: 'left'
     },
     fullscreen: {
       type: Boolean,
       default: false
     },
+    // label: {
+    //   type: String,
+    //   default: 'The label'
+    // },
+    // title: {
+    //   type: String,
+    //   default: 'The title'
+    // },
+    // subtitle: {
+    //   type: String,
+    //   default: 'The subtitle'
+    // },
+    // buttons: {
+    //   type: Array as PropType<Array<Button>>,
+    //   default: () => [
+    //     {
+    //       text: 'Primary Button',
+    //       href: '/button-href',
+    //       variant: 'primary'
+    //     },
+    //     {
+    //       text: 'Accent Button',
+    //       href: '/button-href',
+    //       variant: 'accent'
+    //     }
+    //   ]
+    // },
     image: {
       type: Object as PropType<Image>,
       default: () => ({
@@ -80,8 +89,8 @@ export default defineComponent({
     const classBinds = computed(() => {
       let classSet = ''
 
-      if (props.center) {
-        classSet = appendToSet('hero--center', classSet)
+      if (props.align) {
+        classSet = appendToSet(`hero--${props.align}`, classSet)
       }
       if (props.fullscreen) {
         classSet = appendToSet('hero--full-screen', classSet)

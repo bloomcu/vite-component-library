@@ -1,7 +1,7 @@
 <template>
   <div
     class="content-component"
-    :class="center ? 'text-center' : ''"
+    :class="align == 'center' ? 'text-center' : ''"
   >
     <div
       v-if="label"
@@ -26,7 +26,7 @@
     <div
       v-if="buttons.length"
       class="flex flex-wrap items-center gap-sm"
-      :class="center ? 'flex-center' : ''"
+      :class="align == 'center' ? 'flex-center' : ''"
     >
       <AppButton
         v-for="(button, index) in buttons"
@@ -48,13 +48,19 @@ import Heading from '@/lib-components/elements/Heading/Heading.vue'
 import AppButton from '@/lib-components/elements/AppButton/AppButton.vue'
 
 // Types
-import { Button } from '@/types'
+import { Align, TextSize, HeadingLevel, Button } from '@/types'
 
 export default defineComponent({
   props: {
-    center: {
-      type: Boolean,
-      default: false
+    headingLevel: {
+      type: String as PropType<HeadingLevel>
+    },
+    headingSize: {
+      type: String as PropType<TextSize>
+    },
+    align: {
+      type: String as PropType<Align>,
+      default: 'left'
     },
     label: {
       type: String,
@@ -76,7 +82,6 @@ export default defineComponent({
     }
   },
 
-  components: { AppButton }
   components: { Heading, AppButton }
 })
 </script>

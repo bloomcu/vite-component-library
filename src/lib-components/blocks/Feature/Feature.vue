@@ -5,13 +5,15 @@
         <!-- Column: Content -->
         <div
           class="col-6@md"
-          :class="invert ? 'order-2@md' : ''"
+          :class="orientation == 'right' ? 'order-2@md' : ''"
         >
           <ContentComponent
             :label="label"
             :title="title"
             :subtitle="subtitle"
             :buttons="buttons"
+            :headingLevel="config.headingLevel"
+            :headingSize="config.headingSize"
           />
         </div>
 
@@ -36,16 +38,33 @@ import { defineComponent, PropType } from '@vue/composition-api'
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 // Types
-import { Button, Image } from '@/types'
+import { BlockConfig, Orientation, Button, Image } from '@/types'
 
 export default defineComponent({
   name: 'Feature',
 
   props: {
-    invert: {
-      type: Boolean,
-      default: false
+    config: {
+      type: Object as PropType<BlockConfig>,
+      default: () => ({
+        headingLevel: '1',
+        headingSize: 'xxl',
+      })
     },
+    orientation: {
+      type: String as PropType<Orientation>
+    },
+    // flip: {
+    //   type: Object as PropType<Flip>,
+    //   default: () => ({
+    //     horizontal: false,
+    //     vertical: false
+    //   })
+    // },
+    // invert: {
+    //   type: Boolean,
+    //   default: false
+    // },
     label: {
       type: String,
       default: 'The label'

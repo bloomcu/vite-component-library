@@ -3,11 +3,13 @@
     <div class="container max-width-adaptive-sm">
       <div class="position-relative z-index-2 text-center">
         <ContentComponent
-          center
+          align="center"
           :label="label"
           :title="title"
           :subtitle="subtitle"
           :buttons="buttons"
+          :headingLevel="config.headingLevel"
+          :headingSize="config.headingSize"
         />
       </div>
     </div>
@@ -23,30 +25,22 @@
 </template>
 
 <script lang="ts">
-import { useProps } from '@/composables/useProps'
-import { Button, Image, Video } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
+import { useProps } from '@/composables/useProps'
+import { BlockConfig, Button, Image, Video } from '@/types'
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 export default defineComponent({
   components: { ContentComponent },
   props: {
-    label: {
-      type: String,
-      default: 'The label'
+    ...useProps().group(['ContentComponent']),
+    config: {
+      type: Object as PropType<BlockConfig>,
+      default: () => ({
+        headingLevel: '1',
+        headingSize: 'xxl',
+      })
     },
-    title: {
-      type: String,
-      default: 'The title'
-    },
-    subtitle: {
-      type: String,
-      default: 'The subtitle'
-    },
-    buttons: {
-      type: Array as PropType<Array<Button>>,
-      default: () => []
-    }, 
     image: {
       type: Object as PropType<Image>,
       default: () => ({

@@ -5,13 +5,20 @@
     :cols="cols"
     :columns="columns"
   >
-    <ContentComponent v-bind="column" />
+    <ContentComponent
+      :label="column.label"
+      :title="column.title"
+      :body="column.body"
+      :buttons="column.buttons"
+      :headingLevel="config.headingLevel"
+      :headingSize="config.headingSize"
+    />
   </Grid>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from '@vue/composition-api'
-import { GridGap, ColNumber } from '@/types'
+import { BlockConfig, GridGap, ColNumber } from '@/types'
 import Grid from '@/lib-components/components/Grid/Grid.vue'
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
@@ -19,6 +26,13 @@ export default defineComponent({
   name: 'TextColumns',
   components: { Grid, ContentComponent },
   props: {
+    config: {
+      type: Object as PropType<BlockConfig>,
+      default: () => ({
+        headingLevel: '2',
+        headingSize: 'xl',
+      })
+    },
     gap: {
       type: String as PropType<GridGap>,
       default: 'xl'
