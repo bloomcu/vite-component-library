@@ -11,7 +11,11 @@
     </div>
 
     <div class="text-component margin-bottom-sm">
-      <h1>{{ title }}</h1>
+      <Heading 
+        :text="title" 
+        :level="headingLevel" 
+        :size="headingSize"
+      />
       <p v-if="subtitle">
         {{ subtitle }}
       </p>
@@ -40,6 +44,7 @@
 import { defineComponent, PropType } from '@vue/composition-api'
 
 // Components
+import Heading from '@/lib-components/elements/Heading/Heading.vue'
 import AppButton from '@/lib-components/elements/AppButton/AppButton.vue'
 
 // Types
@@ -72,5 +77,6 @@ export default defineComponent({
   },
 
   components: { AppButton }
+  components: { Heading, AppButton }
 })
 </script>
