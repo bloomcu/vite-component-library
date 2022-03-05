@@ -12,7 +12,7 @@
             class="table__cell text-left"
             scope="col"
           >
-            {{ column }}
+            {{ column.content }}
           </th>
         </tr>
       </thead>
@@ -29,7 +29,7 @@
             role="cell"
           >
             <span class="table__label" aria-hidden="true">{{ columns[index] }}:</span> 
-            {{ cell }}
+            {{ cell.content }}
           </td>
         </tr>
       </tbody>
@@ -60,17 +60,36 @@ export default defineComponent({
     
     columns: {
       type: Array as PropType<any[]>,
-      default: () => (['Product', 'Term', 'APR'])
+      default: () => ([
+        { content: 'Product', key: 'ja719dr71' },
+        { content: 'Term', key: '8gn510jxj' },
+        { content: 'APR', key: '41gwnrv6f' },
+      ])
     },
     
     rows: {
       type: Array as PropType<any[]>,
       default: () => ([
-        ['New Car', '60 Months', '2.74%'],
-        ['Used Car (1-3 years old)', '60 Months', '2.74%'],
-        ['Used Car (4-5 years old)', '48 Months', '2.74%'],
-        ['Used Car (6-7 years old)', '36 Months', '2.74%'],
-        ['Used Car (8+ years old)', '36 Months', '3.74%'],
+        [
+          { content: 'New Car', key: '7knlp9vcv' },
+          { content: '60 Months', key: '29z8p8blu' },
+          { content: '2.74%', key: '8iuvscfxr' },
+        ],
+        [
+          { content: 'Used Car (1-3 years old)', key: '7en6x6s2y' },
+          { content: '60 Months', key: 'ozbaxkvqf' },
+          { content: '3.74%', key: 'yvwccp9u4' },
+        ],
+        [
+          { content: 'Used Car (4-5 years old)', key: 'mw17nlg21' },
+          { content: '48 Months', key: 'bd885bkck' },
+          { content: '4.74%', key: 'jyfjhehxx' },
+        ],
+        [
+          { content: 'Used Car (6-7 years old)', key: 'oq1v525dv' },
+          { content: '36 Months', key: 'a3lmn7cs0' },
+          { content: '5.74%', key: 'rd7yx3haj' },
+        ],
       ])
     }
   },
