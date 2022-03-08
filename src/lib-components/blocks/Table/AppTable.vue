@@ -56,7 +56,7 @@ import { appendToSet } from '@/helpers'
 import ContentComponent from '@/lib-components/components/Content/ContentComponent.vue'
 
 // Types
-import { BlockConfig } from '@/types'
+import { BlockConfig, Align } from '@/types'
 
 export default defineComponent({
   name: 'AppTable',
